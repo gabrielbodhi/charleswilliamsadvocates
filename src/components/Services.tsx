@@ -3,7 +3,6 @@
 import { useState } from "react";
 import content from "@/content/siteContent.json";
 import Reveal from "./Reveal";
-import { getServiceIcon } from "./Icons";
 
 type ServiceStep = {
   headline: string;
@@ -92,9 +91,18 @@ const vendorServiceSteps = [
 ] satisfies ServiceStep[];
 
 export default function Services() {
-  const [showFullServiceSteps, setShowFullServiceSteps] = useState(false);
-  const [showNegotiationSteps, setShowNegotiationSteps] = useState(false);
-  const [showVendorServiceSteps, setShowVendorServiceSteps] = useState(false);
+  const [activeServiceTitle, setActiveServiceTitle] = useState("Full Service");
+  const activeService =
+    content.services.items.find((service) => service.title === activeServiceTitle) ??
+    content.services.items[0];
+
+  const serviceStepsByTitle: Record<string, ServiceStep[]> = {
+    "Full Service": fullServiceSteps,
+    Negotiation: negotiationSteps,
+    "Vendor Service": vendorServiceSteps,
+  };
+
+  const activeServiceSteps = serviceStepsByTitle[activeService.title] ?? [];
 
   return (
     <section className="services" id="services">
@@ -112,127 +120,63 @@ export default function Services() {
             <p>{content.services.description}</p>
           </Reveal>
         </div>
-        <div className="service-cards">
-          {content.services.items.map((service, i) => (
-            <Reveal key={service.title} delay={Math.min(i, 2)}>
-              {service.title === "Full Service" ? (
-                <div
-                  className={`service-card service-card-link${showFullServiceSteps ? " expanded" : ""}`}
-                >
-                  <div className="service-icon">
-                    {getServiceIcon(service.icon)}
+        <div className="services-tabs-layout">
+          <Reveal>
+            <div className="services-tabs" role="tablist" aria-orientation="vertical">
+              {content.services.items.map((service) => {
+                const isActive = service.title === activeService.title;
+                const serviceSteps = serviceStepsByTitle[service.title] ?? [];
+
+                return (
+                  <div key={service.title} className="service-tab-item">
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      className={`service-tab${isActive ? " active" : ""}`}
+                      onClick={() => setActiveServiceTitle(service.title)}
+                    >
+                      <span className="service-tab-title">{service.title}</span>
+                      <span className="service-tab-description">{service.shortDescription}</span>
+                      <span className="service-tab-tags">
+                        {service.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </span>
+                    </button>
+                    {isActive ? (
+                      <div className="service-panel-mobile" role="tabpanel">
+                        <h3>{service.title}</h3>
+                        <p>{service.description}</p>
+                        <ol className="service-steps-inline">
+                          {serviceSteps.map((step) => (
+                            <li key={step.headline}>
+                              <strong>{step.headline}</strong>
+                              <span>{step.detail}</span>
+                            </li>
+                          ))}
+                        </ol>
+                      </div>
+                    ) : null}
                   </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div className="service-tags">
-                    {service.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    className="service-card-cta-btn"
-                    onClick={() => setShowFullServiceSteps((prev) => !prev)}
-                  >
-                    {showFullServiceSteps
-                      ? "Hide full service steps"
-                      : "View full service steps"}
-                  </button>
-                  {showFullServiceSteps ? (
-                    <ol className="service-steps-inline">
-                      {fullServiceSteps.map((step) => (
-                        <li key={step.headline}>
-                          <strong>{step.headline}</strong>
-                          <span>{step.detail}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : null}
-                </div>
-              ) : service.title === "Negotiation" ? (
-                <div
-                  className={`service-card service-card-link${showNegotiationSteps ? " expanded" : ""}`}
-                >
-                  <div className="service-icon">
-                    {getServiceIcon(service.icon)}
-                  </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div className="service-tags">
-                    {service.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    className="service-card-cta-btn"
-                    onClick={() => setShowNegotiationSteps((prev) => !prev)}
-                  >
-                    {showNegotiationSteps
-                      ? "Hide negotiation steps"
-                      : "View negotiation steps"}
-                  </button>
-                  {showNegotiationSteps ? (
-                    <ol className="service-steps-inline">
-                      {negotiationSteps.map((step) => (
-                        <li key={step.headline}>
-                          <strong>{step.headline}</strong>
-                          <span>{step.detail}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : null}
-                </div>
-              ) : service.title === "Vendor Service" ? (
-                <div
-                  className={`service-card service-card-link${showVendorServiceSteps ? " expanded" : ""}`}
-                >
-                  <div className="service-icon">
-                    {getServiceIcon(service.icon)}
-                  </div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div className="service-tags">
-                    {service.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                  <button
-                    type="button"
-                    className="service-card-cta-btn"
-                    onClick={() => setShowVendorServiceSteps((prev) => !prev)}
-                  >
-                    {showVendorServiceSteps
-                      ? "Hide vendor service steps"
-                      : "View vendor service steps"}
-                  </button>
-                  {showVendorServiceSteps ? (
-                    <ol className="service-steps-inline">
-                      {vendorServiceSteps.map((step) => (
-                        <li key={step.headline}>
-                          <strong>{step.headline}</strong>
-                          <span>{step.detail}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  ) : null}
-                </div>
-              ) : (
-                <div className="service-card">
-                    <div className="service-icon">
-                      {getServiceIcon(service.icon)}
-                    </div>
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
-                    <div className="service-tags">
-                      {service.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                </div>
-              )}
-            </Reveal>
-          ))}
+                );
+              })}
+            </div>
+          </Reveal>
+          <Reveal delay={1}>
+            <div className="service-panel" role="tabpanel">
+              <h3>{activeService.title}</h3>
+              <p>{activeService.description}</p>
+              <ol className="service-steps-inline">
+                {activeServiceSteps.map((step) => (
+                  <li key={step.headline}>
+                    <strong>{step.headline}</strong>
+                    <span>{step.detail}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

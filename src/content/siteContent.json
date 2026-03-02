@@ -64,7 +64,8 @@
           "Due Diligence",
           "Negotiation",
           "Settlement"
-        ]
+        ],
+        "shortDescription": "End-to-end property purchase, from search through to settlement."
       },
       {
         "icon": "dollar",
@@ -74,7 +75,8 @@
           "Market Analysis",
           "Strategy",
           "Negotiation"
-        ]
+        ],
+        "shortDescription": "Found a property? We secure it at the right price."
       },
       {
         "icon": "users",
@@ -84,7 +86,8 @@
           "Agent Selection",
           "Campaign",
           "Monitoring"
-        ]
+        ],
+        "shortDescription": "Expert support to maximise your sale result."
       }
     ]
   },
