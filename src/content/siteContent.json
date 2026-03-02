@@ -1,0 +1,149 @@
+{
+  "nav": {
+    "logo": "Williams",
+    "links": [
+      {
+        "label": "About",
+        "href": "#about"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Clients",
+        "href": "#clients"
+      }
+    ],
+    "cta": {
+      "label": "Get Started",
+      "href": "#contact"
+    }
+  },
+  "hero": {
+    "tag": "Melbourne Buyer's Advocacy",
+    "heading": "Buy property with",
+    "headingHighlight": "an advantage",
+    "description": "A decade of insider real estate experience helping buyers and sellers make smarter property decisions. We negotiate harder, plan strategically, and represent your best interests from start to finish.",
+    "primaryCta": "Start Your Search",
+    "secondaryCta": "Our Services",
+    "backgroundImage": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800&q=80"
+  },
+  "about": {
+    "label": "About Charlie",
+    "heading": "Built on handshakes,\nnot handouts",
+    "paragraphs": [
+      "Founded by Charlie, who grew up in country Victoria where hard work isn't negotiable. After more than a decade in Melbourne's real estate industry, he's seen the market from every angle \u2014 and now he's using that experience to help buyers get ahead.",
+      "Having spent years on the other side of the negotiating table, Charlie understands how agents think, how deals come together, and where the real opportunities are. He's built relationships across Melbourne and regional Victoria that give his clients access to properties before they hit the market.",
+      "Williams Advocates was founded to offer something too few buyers receive: genuine advocacy, honest advice, and someone who's unequivocally on their side."
+    ],
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+    "imageAlt": "Modern home interior",
+    "stats": [
+      {
+        "value": "10+",
+        "label": "Years"
+      },
+      {
+        "value": "100%",
+        "label": "Buyer Side"
+      }
+    ]
+  },
+  "services": {
+    "label": "What We Do",
+    "heading": "Services",
+    "description": "Three ways to work with us, each tailored to where you are in your property journey.",
+    "items": [
+      {
+        "icon": "home",
+        "title": "Full Service",
+        "description": "We handle your entire property purchase from start to finish \u2014 defining search criteria, conducting market research, attending inspections, performing due diligence, negotiating with agents, and managing the process through to settlement.",
+        "tags": [
+          "Search",
+          "Due Diligence",
+          "Negotiation",
+          "Settlement"
+        ]
+      },
+      {
+        "icon": "dollar",
+        "title": "Negotiation",
+        "description": "You've found a property you love \u2014 now let us secure it at the right price. We conduct detailed market analysis, perform essential due diligence, develop a strategic bidding approach, and handle all communication with the selling agent.",
+        "tags": [
+          "Market Analysis",
+          "Strategy",
+          "Negotiation"
+        ]
+      },
+      {
+        "icon": "users",
+        "title": "Vendor Service",
+        "description": "Selling your property? We help you achieve the best possible result by selecting the right agent and supporting you throughout the sales campaign \u2014 evaluating agents, reviewing agreements, and monitoring performance.",
+        "tags": [
+          "Agent Selection",
+          "Campaign",
+          "Monitoring"
+        ]
+      }
+    ]
+  },
+  "clients": {
+    "label": "Who We Help",
+    "heading": "Our Clients",
+    "items": [
+      {
+        "icon": "home",
+        "title": "First Home Buyers",
+        "description": "Navigating the process for the first time can be overwhelming. We guide you through every step so you buy with confidence."
+      },
+      {
+        "icon": "family",
+        "title": "Families",
+        "description": "Finding the right family home means balancing school zones, lifestyle needs, and long-term value. We find the fit that works."
+      },
+      {
+        "icon": "dollar",
+        "title": "Investors",
+        "description": "Data-driven property selection to maximise yield and capital growth. We identify opportunities aligned to your investment strategy."
+      }
+    ]
+  },
+  "statement": {
+    "text": "We founded Williams Advocates to give buyers what they actually deserve \u2014",
+    "bold1": "genuine advocacy",
+    "bold2": "honest advice",
+    "accent": "unequivocally on their side"
+  },
+  "contact": {
+    "label": "Get Started",
+    "heading": "Let's buy",
+    "headingHighlight": "better.",
+    "description": "Make your next property purchase with confidence. Complete the form and we'll be in touch within 24 hours to discuss your search.",
+    "location": "Melbourne & Regional Victoria",
+    "email": "charlie@williamsadvocates.com.au",
+    "purchaseTypes": [
+      "First Home",
+      "Family Home",
+      "Investment",
+      "Other"
+    ],
+    "timelines": [
+      "Within 3 months",
+      "3\u20136 months",
+      "6\u201312 months",
+      "12+ months",
+      "Just exploring"
+    ],
+    "referralSources": [
+      "Referral",
+      "Google Search",
+      "Social Media",
+      "Other"
+    ]
+  },
+  "footer": {
+    "copyright": "\u00a9 2026 Williams Advocates. All rights reserved.",
+    "privacyLink": "Privacy Policy"
+  }
+}
