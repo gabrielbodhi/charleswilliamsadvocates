@@ -117,7 +117,7 @@ nav .container{display:flex;justify-content:space-between;align-items:center}
 .service-tab.active .service-tab-tags span{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:rgba(255,255,255,.92)}
 .service-panel{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:clamp(28px,3vw,44px);position:relative;overflow:hidden}
 .service-panel-mobile{display:none;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:20px}
-.service-steps-inline{margin-top:24px;padding:18px 18px 18px 34px;background:var(--card);border:1px solid var(--border);border-radius:12px;display:grid;gap:10px}
+.service-steps-inline{margin-top:24px;padding-left:22px;background:transparent;border:none;border-radius:0;display:grid;gap:10px}
 .service-steps-inline li{font-size:.85rem;line-height:1.65;color:var(--dark-gray)}
 .service-steps-inline li strong{display:block;font-family:var(--heading);font-size:.92rem;line-height:1.35;color:var(--black);margin-bottom:3px}
 .service-steps-inline li span{display:block}
