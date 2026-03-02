@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function asText(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -43,6 +41,8 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const safeFirstName = escapeHtml(firstName);
     const safeLastName = escapeHtml(lastName);
